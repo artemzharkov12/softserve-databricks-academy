@@ -1,21 +1,50 @@
-# Polish Real Estate Market Analysis 
+# 🚀 Data Engineering Journey | SoftServe & Databricks Academy
 
-## Project Overview
-This project is an end-to-end Data Engineering pipeline built in **Databricks**. It ingests real estate data and live currency exchange rates to provide a multi-currency investment analysis for major Polish cities (Warsaw, Kraków, Poznań). 
+Welcome to my central repository for the **Databricks Data Engineering Academy**. 
+This workspace documents my progress, projects, and hands-on laboratory work focused on building scalable, resilient, and secure data pipelines using the Apache Spark ecosystem and Delta Lake.
 
-The pipeline strictly follows the **Medallion Architecture** (Bronze, Silver, Gold) and leverages **Apache Spark** for distributed data processing and **Delta Lake** for ACID transactions and optimized storage.
+**Author:** Artem Zharkov
+**Focus:** Data Engineering, ETL/ELT pipelines, Cloud Architecture, BI Analytics.
 
-## Architecture & Data Flow
-1. **Raw Layer:** Data is downloaded via REST API from Kaggle (House Prices) and NBP (National Bank of Poland - EUR, USD, GBP rates). API credentials are securely managed via Databricks Volumes.
-2. **Bronze Layer:** Raw CSV data is ingested into a Delta table with raw schema intact.
-3. **Silver Layer:** Data cleansing (trim, initcap), datatype casting, deduplication, and handling of null values.
-4. **Gold Layer:** Business-level aggregations. The data is transformed into a Tidy Data (Long) format using optimized `broadcast` Cross-Joins to enable instant multi-currency filtering on the BI side.
+---
 
-## Tech Stack & Features
-* **Databricks & PySpark:** Distributed transformations, `Window` functions, and `groupBy` aggregations.
-* **Delta Lake:** Features `.mode("overwrite")` for idempotency, and `OPTIMIZE ... ZORDER BY` for efficient Data Skipping.
-* **AI/BI Dashboards:** Interactive visualization layer directly integrated into Databricks (Scatter plots for market density, Bar charts for city-level ROI).
-* **Security:** Implemented a "fail-fast" security check using `try-except` and `dbutils.notebook.exit()` to prevent unauthorized API calls without the `secrets.json` volume file.
+## 🛠️ Core Tech Stack
+* **Compute & Orchestration:** Databricks, Apache Spark (PySpark & Spark SQL)
+* **Storage & Formats:** Delta Lake, Unity Catalog, Parquet
+* **Architecture:** Medallion Data Architecture (Bronze ➔ Silver ➔ Gold)
+* **Tools & Analytics:** Databricks AI/BI Dashboards, REST APIs, Git Integration
 
-## Setup Requirements
-To run this pipeline, a `secrets.json` file must be manually created in the user's Volume (`/Volumes/general/<username>/raw_data/secrets.json`) containing the Kaggle API token.
+---
+
+## 🗺️ Academy Roadmap & Lab Tracker
+
+Below is the chronological roadmap of the laboratory works completed during the academy. Each folder contains the respective notebooks, data configurations, and a detailed local `README.md` with technical specifics.
+
+### ✅ [Lab 01: ETL Basics & BI Dashboards](./lab_01_basics)
+**Status:** Completed
+* **Objective:** Build an end-to-end data pipeline to analyze the Polish real estate market and its correlation with currency exchange rates.
+* **Key Implementations:**
+  * **API Ingestion:** Automated data extraction from Kaggle (House Prices) and NBP (National Bank of Poland).
+  * **Security:** Implemented a fail-fast secret management system using Databricks Volumes for API tokens.
+  * **Data Processing (Medallion):** * `Bronze`: Raw data ingestion.
+    * `Silver`: Data cleansing, deduplication, and dynamic null-imputation.
+    * `Gold`: Tidy Data transformations using optimized `F.broadcast` cross-joins for multi-currency analysis.
+  * **Performance:** Applied Delta Lake `OPTIMIZE` and `ZORDER BY` for efficient data skipping.
+* **Results:** A fully re-runnable ETL pipeline and an interactive Databricks Dashboard visualizing the "new-build premium" trend and city-level ROI for foreign investors.
+
+### ⏳ Lab 02: [Topic Name to be added]
+**Status:** Planned / In Progress
+* **Objective:** [Short description of the goal will be added here]
+* **Key Implementations:** [List of technical skills will be added here]
+* **Results:** [TBA]
+
+### ⏳ Lab 03: [Topic Name to be added]
+**Status:** Planned
+* **Objective:** [TBA]
+* **Key Implementations:** [TBA]
+* **Results:** [TBA]
+
+---
+
+## 💡 How to Navigate
+To explore the code and specific implementations, click on the links in the Roadmap above to visit each lab's dedicated folder. Every completed lab contains its own detailed documentation regarding setup, architecture, and business logic.
