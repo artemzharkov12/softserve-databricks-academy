@@ -32,11 +32,16 @@ Below is the chronological roadmap of the laboratory works completed during the 
   * **Performance:** Applied Delta Lake `OPTIMIZE` and `ZORDER BY` for efficient data skipping.
 * **Results:** A fully re-runnable ETL pipeline and an interactive Databricks Dashboard visualizing the "new-build premium" trend and city-level ROI for foreign investors.
 
-### ⏳ Lab 02: [Topic Name to be added]
-**Status:** Planned / In Progress
-* **Objective:** [Short description of the goal will be added here]
-* **Key Implementations:** [List of technical skills will be added here]
-* **Results:** [TBA]
+### ✅ [Lab 02: Batch Data Pipeline & Medallion Architecture Setup](./lab_02_medallion)
+**Status:** Completed
+* **Objective:** Build an automated, secure batch ingestion and transformation pipeline to correlate global news events (GDELT) with financial market volatility (Crypto, Commodities) using PySpark and Unity Catalog.
+* **Key Implementations:**
+  * **Medallion Architecture:** Developed Landing, Bronze, and Silver layers with Delta Lake.
+  * **Security & Governance:** Integrated Azure Key Vault via Databricks Secret Scopes. Set up Unity Catalog schemas and volumes.
+  * **Data Quality & Lineage:** Implemented idempotency checks for API downloads, injected hidden UC metadata (`_metadata.file_path`) into the Bronze layer, and used regex for feature engineering in Silver.
+  * **Orchestration:** Built an automated DAG using Databricks Workflows with strict task dependencies.
+  * **Legacy Access:** Configured OAuth 2.0 direct storage access via Service Principal credentials (`abfss://`).
+* **Results:** A robust, automated batch pipeline capable of safely ingesting and cleaning historical market and news data, fully prepared for Gold layer analytics or ML modeling.
 
 ### ⏳ Lab 03: [Topic Name to be added]
 **Status:** Planned
